@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar'
+import {Route, Switch, Link, BrowserRouter as Router} from 'react-router-dom'
+import Home from './components/Home'
+import Vision from './components/Vision'
+import Perks from './components/Perks'
+import ContactUs from './components/ContactUs'
+import Grid from '@material-ui/core/Grid';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Grid container className="App">
+      <Router>
+      <header>
+        <Navbar></Navbar>
       </header>
-    </div>
+      
+        <Switch>
+          <Route exact path='/'  component={Home}></Route>
+          <Route exact path='/' component={Vision}></Route>
+          <Route exact path='/' component={Perks}></Route>
+          <Route exact path='/' component={ContactUs}></Route>
+         </Switch>
+        </Router> 
+          
+          <Vision></Vision>
+          <Perks></Perks>
+          <ContactUs></ContactUs>
+          
+
+
+
+        
+          </Grid>
   );
 }
 
